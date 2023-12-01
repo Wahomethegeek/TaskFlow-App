@@ -14,7 +14,7 @@
     <title>Register</title>
 </head>
 <body>
-{% include 'base.html' %}
+{% include 'profile/base.html' %}
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">
 <h3>Delete a task </h3>
@@ -22,13 +22,10 @@
     <br>
 <form method="post" autocomplete="off">
     {% csrf_token %}
-
     <p>Are you sure you want to delete the task?</p>
-
-    <a href="{% url 'view_task' %}">Go back</a>
-    <br><br>
-
     <input class="btn btn-danger navbar-btn" type="submit" value="Delete">
+    <br> <br>
+    <a href="{% url 'view_task' %}">Go back</a>
 </form>
 </div>
 <br>

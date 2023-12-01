@@ -11,17 +11,17 @@
     <title> TaskFlow | View tasks </title>
 </head>
 <body>
-{% include 'base.html' %}
+{% include 'profile/base.html' %}
 <br>
 <h3 style="text-align: center">View your <span class=" text-success">Tasks</span></h3>
     <hr>
     <br>
     {% for tsk in task %}
         <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;">
-            {{ tsk.title }}
-            <br> <br>
+           <h3 style="text-align: center">{{ tsk.title }}</h3>
+            <hr>
             {{ tsk.content }}
-            <br><br>
+            <br><br> <br>
             <a class="btn btn-info" type="button" href="{% url 'update_task' tsk.id %}">Update</a>
             <br><br>
             <a class="btn btn-danger" type="button" href="{% url 'delete_task' tsk.id %}">Delete</a>
