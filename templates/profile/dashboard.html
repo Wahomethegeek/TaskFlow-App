@@ -1,0 +1,30 @@
+{% load crispy_forms_tags %}
+{% load static %}
+{% load crispy_forms_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+{% include 'base.html' %}
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">
+<h3>This is our dashboard</h3>
+    <hr>
+
+    <a class="btn btn-primary navbar-btn" type="button" href="{% url 'create_task' %}">Create a task</a>
+
+    <br> <br>
+
+    <a class="btn btn-primary navbar-btn" type="button" href="{% url 'view_task' %}">View tasks</a>
+    <br><br>
+    <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-logout' %}">Logout</a>
+</div>
+<br>
+</body>
+</html>

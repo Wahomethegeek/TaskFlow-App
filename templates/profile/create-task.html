@@ -14,20 +14,17 @@
     <title>Register</title>
 </head>
 <body>
+{% include 'base.html' %}
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">
-<h3>Registration page</h3>
+<h3>Create a task </h3>
     <hr>
     <br>
 <form method="post" autocomplete="off">
     {% csrf_token %}
-    {{ form.username|as_crispy_field }}
-    <br> <br>
-    {{ form.email|as_crispy_field }}
+    {{ form.title|as_crispy_field }}
     <br><br>
-    {{ form.password1|as_crispy_field }}
-    <br><br>
-    {{ form.password2|as_crispy_field }}
+    {{ form.content|as_crispy_field }}
     <br><br>
 
     <input class="btn btn-primary navbar-btn" type="submit" value="Submit">

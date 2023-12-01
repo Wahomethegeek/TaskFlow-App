@@ -14,23 +14,21 @@
     <title>Register</title>
 </head>
 <body>
+{% include 'base.html' %}
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">
-<h3>Registration page</h3>
+<h3>Delete a task </h3>
     <hr>
     <br>
 <form method="post" autocomplete="off">
     {% csrf_token %}
-    {{ form.username|as_crispy_field }}
-    <br> <br>
-    {{ form.email|as_crispy_field }}
-    <br><br>
-    {{ form.password1|as_crispy_field }}
-    <br><br>
-    {{ form.password2|as_crispy_field }}
+
+    <p>Are you sure you want to delete the task?</p>
+
+    <a href="{% url 'view_task' %}">Go back</a>
     <br><br>
 
-    <input class="btn btn-primary navbar-btn" type="submit" value="Submit">
+    <input class="btn btn-danger navbar-btn" type="submit" value="Delete">
 </form>
 </div>
 <br>
