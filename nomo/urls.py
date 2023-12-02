@@ -15,6 +15,9 @@ urlpatterns = [
     # ------------------- Dashboard a User ------------------- #
     path('dashboard', views.dashboard, name='dashboard'),
 
+    # ------------------- profile management ------------------- #
+    path('profile', views.profile, name='profile'),
+
     # ------------------- create a task------------------- #
     path('create-task', views.createTask, name='create_task'),
 

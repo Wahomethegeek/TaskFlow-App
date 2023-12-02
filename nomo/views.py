@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import CreateUserForm, LoginForm, CreateTaskForm
+from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -62,6 +62,24 @@ def dashboard(request):
     return render(request, 'profile/dashboard.html')
 
 
+# profile
+@login_required(login_url='my-login')
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('dashboard')
+
+# setting a unique instance based on the user logged in
+    user_form = UpdateUserForm(instance=request.user)
+
+    context = {'user_form': user_form}
+
+    return render(request, 'profile/profile.html', context=context)
+
+
 # Create a task
 @login_required(login_url="my-login")
 def createTask(request):
@@ -119,7 +137,6 @@ def updateTask(request, pk):
 # Delete task
 @login_required(login_url='my-login')
 def deleteTask(request, pk):
-
     task = Task.objects.get(id=pk)
 
     if request.method == 'POST':
