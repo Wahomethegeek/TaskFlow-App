@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
-from django.contrib.auth.models import auth
+from django.contrib.auth.models import auth, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
@@ -72,12 +72,23 @@ def profile(request):
             user_form.save()
             return redirect('dashboard')
 
-# setting a unique instance based on the user logged in
+    # setting a unique instance based on the user logged in
     user_form = UpdateUserForm(instance=request.user)
 
     context = {'user_form': user_form}
 
     return render(request, 'profile/profile.html', context=context)
+
+
+@login_required(login_url='my-login')
+def deleteProfile(request):
+    if request.method == 'POST':
+        delete_user = User.objects.get(username=request.user)
+
+        delete_user.delete()
+
+        return redirect('')
+    return render(request, 'profile/delete-account.html')
 
 
 # Create a task

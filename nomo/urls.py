@@ -18,6 +18,9 @@ urlpatterns = [
     # ------------------- profile management ------------------- #
     path('profile', views.profile, name='profile'),
 
+    # ------------------- profile management ------------------- #
+    path('delete_profile', views.deleteProfile, name='delete_profile'),
+
     # ------------------- create a task------------------- #
     path('create-task', views.createTask, name='create_task'),
 

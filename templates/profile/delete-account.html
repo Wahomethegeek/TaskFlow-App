@@ -12,21 +12,21 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
-    <title>TaskFlow | Delete-task</title>
+    <title>TaskFlow | Delete Account</title>
 </head>
 <body>
 {% include 'profile/base.html' %}
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">
-<h3>Delete a task </h3>
+<h3>Delete Account </h3>
     <hr>
     <br>
 <form method="post" autocomplete="off">
     {% csrf_token %}
-    <p>Are you sure you want to delete the task?</p>
+    <p>Are you sure you want to delete your account</p>
     <input class="btn btn-danger navbar-btn" type="submit" value="Delete">
     <br> <br>
-    <a href="{% url 'view_task' %}">Go back</a>
+     <a href="{% url 'profile' %}">Go back</a>
 </form>
 </div>
 <br>
