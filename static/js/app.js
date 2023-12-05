@@ -1,1 +1,5 @@
-// alert('Welcome to Task app');
+//alert('Welcome to Task app');
+ const message_timeout = document.getElementById("message-timer");
+ setTimeout(function ()
+{ message_timeout.style.display = "none";
+}, 4000);

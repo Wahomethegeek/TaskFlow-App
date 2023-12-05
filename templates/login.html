@@ -27,6 +27,14 @@
     <br><br>
     <input class="btn btn-primary navbar-btn" type="submit" value="Login">
     <br><br>
+
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <p id="message-timer" class="alert alert-success float-center text-center message-text">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <br><br>
     <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a> </p>
 
 </form>

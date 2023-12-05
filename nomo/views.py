@@ -4,7 +4,8 @@ from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
 from django.contrib.auth.models import auth, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
+# import Django messages (notifications)
+from django.contrib import messages
 from .models import Task
 
 
@@ -25,6 +26,8 @@ def register(request):
 
         if form.is_valid():
             form.save()
+
+            messages.success(request, "User created successfully")
 
             return redirect("my-login")
 
